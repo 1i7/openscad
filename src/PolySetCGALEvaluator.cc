@@ -10,6 +10,7 @@
 #include "rotateextrudenode.h"
 #include "cgaladvnode.h"
 #include "rendernode.h"
+#include "loftnode.h"
 #include "dxfdata.h"
 #include "dxftess.h"
 #include "module.h"
@@ -515,6 +516,67 @@ PolySet *PolySetCGALEvaluator::rotateDxfData(const RotateExtrudeNode &node, DxfD
 		}
 		delete[] points;
 	}
+	
+	return ps;
+}
+
+PolySet *PolySetCGALEvaluator::evaluatePolySet(const LoftNode &node)
+{
+	PolySet *ps = new PolySet();
+
+	double x1 = -10, x2 = 10, y1 = -10, y2 = 10;
+	
+	int count = node.values_x.size();
+	ps->append_poly();
+	ps->append_vertex(x1 + node.values_x[0], y1 + node.values_y[0], 0);
+	ps->append_vertex(x2 + node.values_x[0], y1 + node.values_y[0], 0);
+	ps->append_vertex(x2 + node.values_x[0], y2 + node.values_y[0], 0);
+	ps->append_vertex(x1 + node.values_x[0], y2 + node.values_y[0], 0);
+	for (int a = 1;a < count;a++) {
+		double ox1 = node.values_x[a - 1];
+		double ox2 = node.values_x[a];
+		double oy1 = node.values_y[a - 1];
+		double oy2 = node.values_y[a];
+
+		/*
+		+----------+ y2
+		|          |
+		|          |
+		|          |
+		|          |
+		+----------+ y1
+		x1         x2
+		*/
+		
+		ps->append_poly();
+		ps->append_vertex(x1 + ox1, y1 + oy1, a - 1);
+		ps->append_vertex(x2 + ox1, y1 + oy1, a - 1);
+		ps->append_vertex(x2 + ox2, y1 + oy2, a);
+		ps->append_vertex(x1 + ox2, y1 + oy2, a);
+
+		ps->append_poly();
+		ps->append_vertex(x2 + ox1, y1 + oy1, a - 1);
+		ps->append_vertex(x2 + ox1, y2 + oy1, a - 1);
+		ps->append_vertex(x2 + ox2, y2 + oy2, a);
+		ps->append_vertex(x2 + ox2, y1 + oy2, a);
+
+		ps->append_poly();
+		ps->append_vertex(x2 + ox1, y2 + oy1, a - 1);
+		ps->append_vertex(x1 + ox1, y2 + oy1, a - 1);
+		ps->append_vertex(x1 + ox2, y2 + oy2, a);
+		ps->append_vertex(x2 + ox2, y2 + oy2, a);
+
+		ps->append_poly();
+		ps->append_vertex(x1 + ox1, y2 + oy1, a - 1);
+		ps->append_vertex(x1 + ox1, y1 + oy1, a - 1);
+		ps->append_vertex(x1 + ox2, y1 + oy2, a);
+		ps->append_vertex(x1 + ox2, y2 + oy2, a);
+	}
+	ps->append_poly();
+	ps->append_vertex(x1 + node.values_x[count - 1], y2 + node.values_y[count - 1], count - 1);
+	ps->append_vertex(x2 + node.values_x[count - 1], y2 + node.values_y[count - 1], count - 1);
+	ps->append_vertex(x2 + node.values_x[count - 1], y1 + node.values_y[count - 1], count - 1);
+	ps->append_vertex(x1 + node.values_x[count - 1], y1 + node.values_y[count - 1], count - 1);
 	
 	return ps;
 }
