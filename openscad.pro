@@ -375,6 +375,7 @@ HEADERS += src/cgal.h \
 SOURCES += src/cgalutils.cc \
            src/CGALEvaluator.cc \
            src/PolySetCGALEvaluator.cc \
+           src/PolySetCGALEvaluator_LoftNode.cc \
            src/CGALCache.cc \
            src/CGALRenderer.cc \
            src/CGAL_Nef_polyhedron.cc \
