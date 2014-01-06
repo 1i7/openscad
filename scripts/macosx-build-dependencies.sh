@@ -369,43 +369,6 @@ build_glew()
   make GLEW_DEST=$DEPLOYDIR CC=$CC CFLAGS.EXTRA="-no-cpp-precomp -dynamic -fno-common -mmacosx-version-min=$MAC_OSX_VERSION_MIN $GLEW_EXTRA_FLAGS -arch x86_64" LDFLAGS.EXTRA="-mmacosx-version-min=$MAC_OSX_VERSION_MIN $GLEW_EXTRA_FLAGS -arch x86_64" STRIP= install
 }
 
-build_gettext()
-{
-  version=$1
-  echo "Building gettext $version..."
-
-  cd "$BASEDIR"/src
-  rm -rf "gettext-$version"
-  if [ ! -f "glib-$version.tar.xz" ]; then
-    curl --insecure -LO "http://ftpmirror.gnu.org/gettext/gettext-$version.tar.gz"
-  fi
-  tar xzf "gettext-$version.tar.gz"
-  cd "gettext-$version"
-
-  ./configure --prefix="$DEPLOYDIR"
-  make -j4
-  make install
-}
-
-build_glib2()
-{
-  version=$1
-  echo "Building glib2 $version..."
-
-  cd "$BASEDIR"/src
-  rm -rf "glib-$version"
-  maj_min_version="${version%.*}" #Drop micro
-  if [ ! -f "glib-$version.tar.xz" ]; then
-    curl --insecure -LO "http://ftp.gnome.org/pub/gnome/sources/glib/$maj_min_version/glib-$version.tar.xz"
-  fi
-  tar xJf "glib-$version.tar.xz"
-  cd "glib-$version"
-
-  ./configure --disable-gtk-doc --disable-man --prefix="$DEPLOYDIR" CFLAGS="-I$DEPLOYDIR/include" LDFLAGS="-L$DEPLOYDIR/lib"
-  make -j4
-  make install
-}
-
 build_opencsg()
 {
   version=$1
@@ -595,6 +558,7 @@ build_boost 1.54.0
 build_cgal 4.3
 build_glew 1.10.0
 build_gettext 0.18.3.1
+build_libffi 3.0.13
 build_glib2 2.38.2
 build_opencsg 1.3.2
 build_freetype 2.5.0.1 --without-png
