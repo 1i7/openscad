@@ -477,6 +477,7 @@ int cmdline(const char *deps_output_file, const std::string &filename, Camera &c
 #include <QApplication>
 #include <QString>
 #include <QDir>
+#include <QTextCodec>
 
 // Only if "fileName" is not absolute, prepend the "absoluteBase".
 static QString assemblePath(const fs::path& absoluteBase,
@@ -519,6 +520,8 @@ int gui(vector<string> &inputFiles, const fs::path &original_path, int argc, cha
 	QCoreApplication::setApplicationName("OpenSCAD");
 	QCoreApplication::setApplicationVersion(TOSTRING(OPENSCAD_VERSION));
 	
+	QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
 	const QString &app_path = app.applicationDirPath();
 	parser_init(app_path.toLocal8Bit().constData());
 
