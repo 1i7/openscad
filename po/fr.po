@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenSCAD 2013.02.07\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-09 18:17+0100\n"
+"POT-Creation-Date: 2014-01-14 14:08+0400\n"
 "PO-Revision-Date: 2013-02-08 15:06-0600\n"
 "Last-Translator: don bright <hugh.m.bright@gmail.com>\n"
 "Language-Team: French\n"
@@ -222,7 +222,7 @@ msgstr ""
 msgid "Export as &OFF..."
 msgstr ""
 
-#: objects/ui_MainWindow.h:520 objects/ui_Preferences.h:548
+#: objects/ui_MainWindow.h:520 objects/ui_Preferences.h:556
 msgid "OpenCSG"
 msgstr ""
 
@@ -382,7 +382,7 @@ msgstr "Fermer"
 msgid "Ctrl+W"
 msgstr ""
 
-#: objects/ui_MainWindow.h:560 objects/ui_Preferences.h:514
+#: objects/ui_MainWindow.h:560 objects/ui_Preferences.h:522
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -422,7 +422,7 @@ msgstr ""
 msgid "Reset View"
 msgstr ""
 
-#: objects/ui_MainWindow.h:571 objects/ui_Preferences.h:517
+#: objects/ui_MainWindow.h:571 objects/ui_Preferences.h:525
 msgid "Editor"
 msgstr ""
 
@@ -509,112 +509,116 @@ msgstr ""
 msgid "Show this message again"
 msgstr ""
 
-#: objects/ui_Preferences.h:515
+#: objects/ui_Preferences.h:523
 #, fuzzy
 msgid "3D View"
 msgstr "&Vue"
 
-#: objects/ui_Preferences.h:516
+#: objects/ui_Preferences.h:524
 msgid "Advanced"
 msgstr ""
 
-#: objects/ui_Preferences.h:518
+#: objects/ui_Preferences.h:526
 msgid "Update"
 msgstr ""
 
-#: objects/ui_Preferences.h:519 objects/ui_Preferences.h:547
+#: objects/ui_Preferences.h:527 objects/ui_Preferences.h:555
 msgid "Features"
 msgstr ""
 
-#: objects/ui_Preferences.h:521
+#: objects/ui_Preferences.h:529
 msgid "Enable/Disable experimental features"
 msgstr ""
 
-#: objects/ui_Preferences.h:523
+#: objects/ui_Preferences.h:531
 msgid "Color scheme:"
 msgstr ""
 
-#: objects/ui_Preferences.h:528
+#: objects/ui_Preferences.h:536
 msgid "Cornfield"
 msgstr ""
 
-#: objects/ui_Preferences.h:530
+#: objects/ui_Preferences.h:538
 msgid "Metallic"
 msgstr ""
 
-#: objects/ui_Preferences.h:532
+#: objects/ui_Preferences.h:540
 msgid "Sunset"
 msgstr ""
 
-#: objects/ui_Preferences.h:535
+#: objects/ui_Preferences.h:543
 msgid "Font"
 msgstr ""
 
-#: objects/ui_Preferences.h:536
+#: objects/ui_Preferences.h:544
 msgid "Color syntax highlighting"
 msgstr ""
 
-#: objects/ui_Preferences.h:539
-msgid "For Light Background"
-msgstr ""
-
-#: objects/ui_Preferences.h:540
-msgid "For Dark Background"
-msgstr ""
-
-#: objects/ui_Preferences.h:541
+#: objects/ui_Preferences.h:547
 msgid "Off"
 msgstr ""
 
-#: objects/ui_Preferences.h:543
-msgid "Automatically check for updates"
-msgstr ""
-
-#: objects/ui_Preferences.h:544
-msgid "Include development snapshots"
-msgstr ""
-
-#: objects/ui_Preferences.h:545
-msgid "Check Now"
-msgstr ""
-
-#: objects/ui_Preferences.h:546
-msgid "Last checked: "
+#: objects/ui_Preferences.h:548
+msgid "For Light Background"
 msgstr ""
 
 #: objects/ui_Preferences.h:549
-msgid "Show capability warning"
-msgstr ""
-
-#: objects/ui_Preferences.h:550
-msgid "Enable for OpenGL 1.x"
+msgid "For Dark Background"
 msgstr ""
 
 #: objects/ui_Preferences.h:551
-msgid "Turn off rendering at "
+msgid "Automatically check for updates"
 msgstr ""
 
 #: objects/ui_Preferences.h:552
-msgid "elements"
+msgid "Include development snapshots"
 msgstr ""
 
 #: objects/ui_Preferences.h:553
-msgid "Force Goldfeather"
+msgid "Check Now"
 msgstr ""
 
 #: objects/ui_Preferences.h:554
-msgid "CGAL Cache size"
+msgid "Last checked: "
 msgstr ""
 
-#: objects/ui_Preferences.h:555 objects/ui_Preferences.h:557
-msgid "bytes"
-msgstr ""
-
-#: objects/ui_Preferences.h:556
-msgid "PolySet Cache size"
+#: objects/ui_Preferences.h:557
+msgid "Show capability warning"
 msgstr ""
 
 #: objects/ui_Preferences.h:558
+msgid "Enable for OpenGL 1.x"
+msgstr ""
+
+#: objects/ui_Preferences.h:559
+msgid "Turn off rendering at "
+msgstr ""
+
+#: objects/ui_Preferences.h:560
+msgid "elements"
+msgstr ""
+
+#: objects/ui_Preferences.h:561
+msgid "Force Goldfeather"
+msgstr ""
+
+#: objects/ui_Preferences.h:562
+msgid "CGAL Cache size"
+msgstr ""
+
+#: objects/ui_Preferences.h:563 objects/ui_Preferences.h:565
+msgid "bytes"
+msgstr ""
+
+#: objects/ui_Preferences.h:564
+msgid "PolySet Cache size"
+msgstr ""
+
+#: objects/ui_Preferences.h:566
+msgid "Enable user interface localization (requires restart of OpenSCAD)"
+msgstr ""
+
+#: objects/ui_Preferences.h:567
 msgid "toolBar"
 msgstr ""
 
@@ -1662,88 +1666,88 @@ msgstr ""
 msgid "Current top level object is not a 2D object.\n"
 msgstr ""
 
-#: src/openscad.cc:591
+#: src/openscad.cc:594
 msgid "Allowed options"
 msgstr ""
 
-#: src/openscad.cc:593
+#: src/openscad.cc:596
 msgid "help message"
 msgstr ""
 
-#: src/openscad.cc:594
+#: src/openscad.cc:597
 msgid "print the version"
 msgstr ""
 
-#: src/openscad.cc:595
+#: src/openscad.cc:598
 msgid "print information about the building process"
 msgstr ""
 
-#: src/openscad.cc:596
+#: src/openscad.cc:599
 msgid "if exporting a png image, do a full CGAL render"
 msgstr ""
 
-#: src/openscad.cc:597
+#: src/openscad.cc:600
 msgid ""
 "if exporting a png image, do an OpenCSG(default) or ThrownTogether preview"
 msgstr ""
 
-#: src/openscad.cc:598
+#: src/openscad.cc:601
 msgid "parameters for camera when exporting png"
 msgstr ""
 
-#: src/openscad.cc:599
+#: src/openscad.cc:602
 msgid "=width,height for exporting png"
 msgstr ""
 
-#: src/openscad.cc:600
+#: src/openscad.cc:603
 msgid "(o)rtho or (p)erspective when exporting png"
 msgstr ""
 
-#: src/openscad.cc:601
+#: src/openscad.cc:604
 msgid "out-file"
 msgstr ""
 
-#: src/openscad.cc:602
+#: src/openscad.cc:605
 msgid "stl-file"
 msgstr ""
 
-#: src/openscad.cc:603
+#: src/openscad.cc:606
 msgid "dxf-file"
 msgstr ""
 
-#: src/openscad.cc:604
+#: src/openscad.cc:607
 msgid "deps-file"
 msgstr ""
 
-#: src/openscad.cc:605
+#: src/openscad.cc:608
 msgid "makefile"
 msgstr ""
 
-#: src/openscad.cc:606
+#: src/openscad.cc:609
 msgid "var=val"
 msgstr ""
 
-#: src/openscad.cc:607
+#: src/openscad.cc:610
 msgid "enable experimental features"
 msgstr ""
 
-#: src/openscad.cc:609
+#: src/openscad.cc:612
 msgid "Hidden options"
 msgstr ""
 
-#: src/openscad.cc:611
+#: src/openscad.cc:614
 msgid "input file"
 msgstr ""
 
-#: src/openscad.cc:645
+#: src/openscad.cc:648
 msgid "DEPRECATED: The -s option is deprecated. Use -o instead.\n"
 msgstr ""
 
-#: src/openscad.cc:650
+#: src/openscad.cc:653
 msgid "DEPRECATED: The -x option is deprecated. Use -o instead.\n"
 msgstr ""
 
-#: src/openscad.cc:707
+#: src/openscad.cc:710
 msgid "Requested GUI mode but can't open display!\n"
 msgstr ""
 
