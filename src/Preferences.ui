@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>823</width>
-    <height>433</height>
+    <height>440</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -104,7 +104,7 @@
         <item>
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="labelFont">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -170,7 +170,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QLabel" name="label_9">
+           <widget class="QLabel" name="labelColorSyntaxHighlighting">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -200,6 +200,14 @@
           </item>
           <item>
            <widget class="QComboBox" name="syntaxHighlight">
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>Off</string>
+             </property>
+            </item>
             <item>
              <property name="text">
               <string>For Light Background</string>
@@ -208,11 +216,6 @@
             <item>
              <property name="text">
               <string>For Dark Background</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Off</string>
              </property>
             </item>
            </widget>
@@ -386,7 +389,7 @@
         <item row="0" column="0">
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
-           <widget class="QLabel" name="label_9">
+           <widget class="QLabel" name="labelFeatures">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -418,7 +421,7 @@
                <x>0</x>
                <y>0</y>
                <width>803</width>
-               <height>311</height>
+               <height>318</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -547,6 +550,16 @@
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="localizationCheckBox">
+          <property name="text">
+           <string>Enable user interface localization (requires restart of OpenSCAD)</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="verticalSpacer_2">

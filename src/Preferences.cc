@@ -63,7 +63,7 @@ Preferences::Preferences(QWidget *parent) : QMainWindow(parent)
 	QString found_family(QFontInfo(font).family());
 	this->defaultmap["editor/fontfamily"] = found_family;
  	this->defaultmap["editor/fontsize"] = 12;
-	this->defaultmap["editor/syntaxhighlight"] = "For Light Background";
+	this->defaultmap["editor/syntaxhighlight"] = SYNTAX_HIGHLIGHT_LIGHT_BG;
 
 	uint savedsize = getValue("editor/fontsize").toUInt();
 	QFontDatabase db;
@@ -90,7 +90,7 @@ Preferences::Preferences(QWidget *parent) : QMainWindow(parent)
 #endif
 	this->defaultmap["advanced/openCSGLimit"] = RenderSettings::inst()->openCSGTermLimit;
 	this->defaultmap["advanced/forceGoldfeather"] = false;
-	this->defaultmap["advanced/localization"] = false;
+	this->defaultmap["advanced/localization"] = true;
 
 	// Toolbar
 	QActionGroup *group = new QActionGroup(this);
@@ -281,11 +281,12 @@ void Preferences::on_fontSize_editTextChanged(const QString &size)
 	emit fontChanged(getValue("editor/fontfamily").toString(), intsize);
 }
 
-void Preferences::on_syntaxHighlight_currentIndexChanged(const QString &s)
+void Preferences::on_syntaxHighlight_currentIndexChanged(const QString&)
 {
 	QSettings settings;
-	settings.setValue("editor/syntaxhighlight", s);
-	emit syntaxHighlightChanged(s);
+	int idx = syntaxHighlight->currentIndex();
+	settings.setValue("editor/syntaxhighlight", idx);
+	emit syntaxHighlightChanged(idx);
 }
 
 void unimplemented_msg()
@@ -359,6 +360,12 @@ void Preferences::on_opencsgLimitEdit_textChanged(const QString &text)
 	// FIXME: Set this globally?
 }
 
+void Preferences::on_localizationCheckBox_toggled(bool state)
+{
+	QSettings settings;
+	settings.setValue("advanced/localization", state);
+}
+
 void Preferences::on_forceGoldfeatherBox_toggled(bool state)
 {
 	QSettings settings;
@@ -424,10 +431,14 @@ void Preferences::updateGUI()
 		this->fontSize->setEditText(fontsize);
 	}
 
-	QString shighlight = getValue("editor/syntaxhighlight").toString();
-	int shidx = this->syntaxHighlight->findText(shighlight);
-	if (shidx >= 0) this->syntaxHighlight->setCurrentIndex(shidx);
-
+	bool shidx_ok;
+	int shidx = getValue("editor/syntaxhighlight").toInt(&shidx_ok);
+	this->syntaxHighlight->setCurrentIndex(-1);
+	if (!shidx_ok || (shidx < 0) || (shidx >= this->syntaxHighlight->count())) {
+		shidx = SYNTAX_HIGHLIGHT_LIGHT_BG;
+	}
+	this->syntaxHighlight->setCurrentIndex(shidx);
+	
 	if (AutoUpdater *updater = AutoUpdater::updater()) {
 		this->updateCheckBox->setChecked(updater->automaticallyChecksForUpdates());
 		this->snapshotCheckBox->setChecked(updater->enableSnapshots());
@@ -439,6 +450,7 @@ void Preferences::updateGUI()
 	this->cgalCacheSizeEdit->setText(getValue("advanced/cgalCacheSize").toString());
 	this->polysetCacheSizeEdit->setText(getValue("advanced/polysetCacheSize").toString());
 	this->opencsgLimitEdit->setText(getValue("advanced/openCSGLimit").toString());
+	this->localizationCheckBox->setChecked(getValue("advanced/localization").toBool());
 	this->forceGoldfeatherBox->setChecked(getValue("advanced/forceGoldfeather").toBool());
 }
 
